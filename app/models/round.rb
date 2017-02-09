@@ -6,6 +6,7 @@ class Round
   property :course, String
   property :score,  Integer
 
+  has n, :holes
   belongs_to :user
 
 end

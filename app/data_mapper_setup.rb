@@ -8,3 +8,4 @@ require_relative 'models/hole'
 
 DataMapper.setup(:default,  ENV['DATABASE_URL'] || "postgres://localhost/golf_project_#{ENV['RACK_ENV']}")
 DataMapper.finalize
+DataMapper.auto_upgrade!

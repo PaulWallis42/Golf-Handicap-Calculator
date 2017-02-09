@@ -8,4 +8,6 @@ class Hole
   property :putts,    Integer
   property :shots,    Integer
 
+  belongs_to :round
+
 end
