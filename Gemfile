@@ -12,8 +12,6 @@ gem 'rake'
 group :test do
   gem 'rspec'
   gem 'capybara'
-  # test associations on the database
-  gem 'shoulda'
   gem 'poltergeist'
   gem 'database_cleaner'
 end

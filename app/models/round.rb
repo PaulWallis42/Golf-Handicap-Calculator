@@ -5,5 +5,7 @@ class Round
   property :date,   Date
   property :course, String
   property :score,  Integer
-  
+
+  belongs_to :user
+
 end

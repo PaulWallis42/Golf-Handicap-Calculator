@@ -6,4 +6,6 @@ class User
   property :password, String
   property :handicap, Integer
 
+  has n, :rounds
+
 end
