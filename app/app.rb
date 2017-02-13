@@ -9,6 +9,18 @@ class GolfTracker < Sinatra::Base
     erb :'index'
   end
 
+  post '/user' do
+
+  end
+
+  post '/round' do
+
+  end
+
+  post '/hole' do
+    
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
