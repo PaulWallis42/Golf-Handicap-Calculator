@@ -7,7 +7,6 @@ class Hole
   property :distance, Integer
   property :putts,    Integer
   property :shots,    Integer
-  property :user,     Integer 
 
   belongs_to :round
 
