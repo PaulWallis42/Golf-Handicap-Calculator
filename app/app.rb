@@ -3,7 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'rack-flash'
-
+require 'bcrypt'
 
 class GolfTracker < Sinatra::Base
   enable :sessions
@@ -18,9 +18,10 @@ class GolfTracker < Sinatra::Base
   end
 
   post '/sign_up' do
+    hashed_password = BCrypt::Password.create(params[:password])
     user = User.new(email: params[:email],
                     name: params[:name],
-                    password: params[:password])
+                    password: hashed_password)
     if user.save
       session[:email] = params[:email]
       redirect '/'
