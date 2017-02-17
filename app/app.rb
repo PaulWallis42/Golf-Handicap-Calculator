@@ -11,6 +11,12 @@ class GolfTracker < Sinatra::Base
     erb :'index'
   end
 
+  post '/sign_up' do
+    User.create(email: params[:email],
+                name: params[:name],
+                password: params[:password])
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0
