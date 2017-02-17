@@ -1,15 +1,10 @@
 feature 'Signing up' do
 
   scenario 'user can sign up' do
-    visit('/')
-    click_link('Sign up')
-    fill_in 'email', with: 'golfer@handicap.com'
-    fill_in 'password', with: 'password'
-    fill_in 'name', with: 'Nicholas'
-    click_button 'Submit'
-    user = User.first(email: 'golfer@handicap.com')
-    expect(user.email).to eq('golfer@handicap.com')
-    expect(user.name).to eq('Nicholas')
+    sign_up
+    user = User.first(email: 'first_user@email.com')
+    expect(user.email).to eq('first_user@email.com')
+    expect(user.name).to eq('First User')
     expect(current_path).to eq('/')
   end
 
