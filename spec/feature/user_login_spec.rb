@@ -30,14 +30,18 @@ feature 'Signing up' do
     expect(current_path).to eq('/sign_up')
   end
 
-  scenario 'user can sign in' do
+  scenario 'user can sign in with correct details' do
     visit('/')
     click_link('Sign in')
     fill_in 'email', with: 'first_user@email.com'
     fill_in 'password', with: 'password'
     click_button 'Submit'
+    expect(page).to have_content('Welcome to golf tracker first_user@email.com')
     expect(current_path).to eq('/')
-    expect(page).to have_content('Welcome First User')
+  end
+
+  scenario 'user can not sign in with incorrect details' do
+    
   end
 
 end

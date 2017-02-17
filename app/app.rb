@@ -15,18 +15,31 @@ class GolfTracker < Sinatra::Base
     erb :'sign_up'
   end
 
-
-
   post '/sign_up' do
     user = User.new(email: params[:email],
                     name: params[:name],
                     password: params[:password])
     if user.save
-      session[:name] = params[:name]
+      session[:email] = params[:email]
       redirect '/'
     else
       session[:error] = 'Email is already taken'
       redirect '/sign_up'
+    end
+  end
+
+  get '/sign_in' do
+    erb :'sign_in'
+  end
+
+  post '/sign_in' do
+    user = User.first(email: params[:email])
+    if user && user.password == params[:password]
+      session[:email] = params[:email]
+      redirect ('/')
+    else
+      session[:error] = 'Either your email or password is incorrect'
+      redirect('/sign_in')
     end
   end
 
