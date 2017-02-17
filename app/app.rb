@@ -37,7 +37,7 @@ class GolfTracker < Sinatra::Base
 
   post '/sign_in' do
     user = User.first(email: params[:email])
-    if user && user.password == params[:password]
+    if user && BCrypt::Password.new(user.password) == params[:password]
       session[:email] = params[:email]
       redirect ('/')
     else

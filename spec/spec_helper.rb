@@ -9,6 +9,8 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 
+require_relative 'helpers/user_helper.rb'
+
 require './app/data_mapper_setup.rb'
 
 require './app/models/user.rb'

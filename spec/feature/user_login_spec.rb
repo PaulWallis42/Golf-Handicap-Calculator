@@ -1,11 +1,5 @@
 feature 'Signing up' do
 
-  before(:each) do
-    User.create(email: 'first_user@email.com',
-                name: 'First User',
-                password: 'password')
-  end
-
   scenario 'user can sign up' do
     visit('/')
     click_link('Sign up')
@@ -13,13 +7,14 @@ feature 'Signing up' do
     fill_in 'password', with: 'password'
     fill_in 'name', with: 'Nicholas'
     click_button 'Submit'
-    user = User.get(2)
+    user = User.first(email: 'golfer@handicap.com')
     expect(user.email).to eq('golfer@handicap.com')
     expect(user.name).to eq('Nicholas')
     expect(current_path).to eq('/')
   end
 
   scenario 'user can only sign up with unique email' do
+    sign_up
     visit('/')
     click_link('Sign up')
     fill_in 'email', with: 'first_user@email.com'
@@ -31,6 +26,7 @@ feature 'Signing up' do
   end
 
   scenario 'user can sign in with correct details' do
+    sign_up
     visit('/')
     click_link('Sign in')
     fill_in 'email', with: 'first_user@email.com'
