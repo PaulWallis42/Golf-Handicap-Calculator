@@ -19,7 +19,7 @@ feature 'Signing up' do
     expect(current_path).to eq('/')
   end
 
-  scenario 'user can only sign up with unique password' do
+  scenario 'user can only sign up with unique email' do
     visit('/')
     click_link('Sign up')
     fill_in 'email', with: 'first_user@email.com'

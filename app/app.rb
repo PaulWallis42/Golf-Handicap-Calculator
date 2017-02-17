@@ -2,10 +2,12 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
+require 'rack-flash'
 
 
 class GolfTracker < Sinatra::Base
   enable :sessions
+  use Rack::Flash
 
   get '/' do
     erb :'index'
@@ -23,7 +25,7 @@ class GolfTracker < Sinatra::Base
       session[:email] = params[:email]
       redirect '/'
     else
-      session[:error] = 'Email is already taken'
+      flash[:notice] = 'Email is already taken'
       redirect '/sign_up'
     end
   end
@@ -38,7 +40,7 @@ class GolfTracker < Sinatra::Base
       session[:email] = params[:email]
       redirect ('/')
     else
-      session[:error] = 'Either your email and/or password are incorrect'
+      flash[:notice] = 'Either your email and/or password are incorrect'
       redirect('/sign_in')
     end
   end

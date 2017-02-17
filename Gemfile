@@ -8,6 +8,7 @@ gem 'data_mapper'
 
 gem 'bcrypt'
 gem 'rake'
+gem 'rack-flash3'
 
 group :test do
   gem 'rspec'

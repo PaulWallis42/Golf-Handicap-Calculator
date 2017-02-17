@@ -1,5 +1,5 @@
-<% if session[:error] %>
-  <%= session[:error] %>
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
 <% end %>
 
 <form method='post' action='/sign_in'>
