@@ -17,4 +17,5 @@ describe User do
     expect(user.rounds.first.course).to eq 'Sawgrass'
   end
 
+
 end

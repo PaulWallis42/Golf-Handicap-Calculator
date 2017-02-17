@@ -4,6 +4,7 @@ class User
   property :id,       Serial
   property :email,    String
   property :password, String
+  property :name,     String
   property :handicap, Integer
 
   has n, :rounds
