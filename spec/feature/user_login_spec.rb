@@ -41,7 +41,13 @@ feature 'Signing up' do
   end
 
   scenario 'user can not sign in with incorrect details' do
-    
+    visit('/')
+    click_link('Sign in')
+    fill_in 'email', with: 'first_user@email.com'
+    fill_in 'password', with: 'incorrect_password'
+    click_button 'Submit'
+    expect(page).to have_content('Either your email and/or password are incorrect')
+    expect(current_path).to eq('/sign_in')
   end
 
 end

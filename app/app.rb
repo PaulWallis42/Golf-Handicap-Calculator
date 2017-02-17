@@ -38,7 +38,7 @@ class GolfTracker < Sinatra::Base
       session[:email] = params[:email]
       redirect ('/')
     else
-      session[:error] = 'Either your email or password is incorrect'
+      session[:error] = 'Either your email and/or password are incorrect'
       redirect('/sign_in')
     end
   end
