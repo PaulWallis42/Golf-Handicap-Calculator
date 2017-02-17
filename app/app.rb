@@ -13,11 +13,11 @@ class GolfTracker < Sinatra::Base
     erb :'index'
   end
 
-  get '/sign_up' do
+  get '/users/sign_up' do
     erb :'sign_up'
   end
 
-  post '/sign_up' do
+  post '/users/sign_up' do
     hashed_password = BCrypt::Password.create(params[:password])
     user = User.new(email: params[:email],
                     name: params[:name],
@@ -27,22 +27,22 @@ class GolfTracker < Sinatra::Base
       redirect '/'
     else
       flash[:notice] = 'Email is already taken'
-      redirect '/sign_up'
+      redirect '/users/sign_up'
     end
   end
 
-  get '/sign_in' do
+  get '/users/sign_in' do
     erb :'sign_in'
   end
 
-  post '/sign_in' do
+  post '/users/sign_in' do
     user = User.first(email: params[:email])
     if user && BCrypt::Password.new(user.password) == params[:password]
       session[:email] = params[:email]
       redirect ('/')
     else
       flash[:notice] = 'Either your email and/or password are incorrect'
-      redirect('/sign_in')
+      redirect('/users/sign_in')
     end
   end
 

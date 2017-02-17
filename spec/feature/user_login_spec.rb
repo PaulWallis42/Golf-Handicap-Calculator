@@ -17,7 +17,7 @@ feature 'Signing up' do
     fill_in 'name', with: 'First User'
     click_button 'Submit'
     expect(page).to have_content('Email is already taken')
-    expect(current_path).to eq('/sign_up')
+    expect(current_path).to eq('/users/sign_up')
   end
 
   scenario 'user can sign in with correct details' do
@@ -38,7 +38,7 @@ feature 'Signing up' do
     fill_in 'password', with: 'incorrect_password'
     click_button 'Submit'
     expect(page).to have_content('Either your email and/or password are incorrect')
-    expect(current_path).to eq('/sign_in')
+    expect(current_path).to eq('/users/sign_in')
   end
 
 end
