@@ -16,6 +16,7 @@ feature 'Signing up' do
     user = User.get(2)
     expect(user.email).to eq('golfer@handicap.com')
     expect(user.name).to eq('Nicholas')
+    expect(current_path).to eq('/')
   end
 
   scenario 'user can only sign up with unique password' do
@@ -26,6 +27,17 @@ feature 'Signing up' do
     fill_in 'name', with: 'First User'
     click_button 'Submit'
     expect(page).to have_content('Email is already taken')
+    expect(current_path).to eq('/sign_up')
+  end
+
+  scenario 'user can sign in' do
+    visit('/')
+    click_link('Sign in')
+    fill_in 'email', with: 'first_user@email.com'
+    fill_in 'password', with: 'password'
+    click_button 'Submit'
+    expect(current_path).to eq('/')
+    expect(page).to have_content('Welcome First User')
   end
 
 end
