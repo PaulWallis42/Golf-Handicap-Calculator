@@ -46,6 +46,16 @@ class GolfTracker < Sinatra::Base
     end
   end
 
+  get '/add_round' do
+    erb :'add_round'
+  end
+
+  post '/add_round' do
+    user = User.first(email: session[:email])
+    user.rounds.create(date: params[:date], course: params[:course], score: params[:score])
+
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0
