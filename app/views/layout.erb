@@ -6,11 +6,14 @@
 </head>
 
 <body>
-
-  <a href='/users/sign_up'>Sign up</a>
-  <a href='/users/sign_in'>Sign in</a>
   <a href='/'>Home</a>
 
+<% if !session[:email] %>
+  <a href='/users/sign_up'>Sign up</a>
+  <a href='/users/sign_in'>Sign in</a>
+<% else %>
+  <a href='/user/sign_out'>Sign out</a>
+<% end %>
 
   <%= yield %>
 

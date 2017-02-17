@@ -46,6 +46,11 @@ class GolfTracker < Sinatra::Base
     end
   end
 
+  get '/user/sign_out' do
+    session[:email] = nil
+    redirect '/'
+  end
+
   get '/add_round' do
     erb :'add_round'
   end
