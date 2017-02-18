@@ -1,21 +1,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <title>The Golf Tracker</title>
 </head>
 
 <body>
   <a href='/'>Home</a>
 
-<% if !session[:email] %>
-  <a href='/users/sign_up'>Sign up</a>
-  <a href='/users/sign_in'>Sign in</a>
-<% else %>
-  <a href='/user/sign_out'>Sign out</a>
-<% end %>
+  <% if !session[:email] %>
+    <a href='/users/sign_up'>Sign up</a>
+    <a href='/users/sign_in'>Sign in</a>
+  <% else %>
+    <a href='/user/sign_out'>Sign out</a>
+  <% end %>
 
   <%= yield %>
+
 
 </body>
 </html>

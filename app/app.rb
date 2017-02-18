@@ -51,14 +51,18 @@ class GolfTracker < Sinatra::Base
     redirect '/'
   end
 
-  get '/add_round' do
+  get '/round/new' do
     erb :'add_round'
   end
 
-  post '/add_round' do
+  post '/round' do
     user = User.first(email: session[:email])
     user.rounds.create(date: params[:date], course: params[:course], score: params[:score])
+    redirect '/holes/new'
+  end
 
+  get '/holes/new' do
+    erb :'add_holes'
   end
 
 
