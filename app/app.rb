@@ -65,6 +65,11 @@ class GolfTracker < Sinatra::Base
     erb :'add_holes'
   end
 
+  post '/holes' do
+    puts params
+    redirect '/holes/new'
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

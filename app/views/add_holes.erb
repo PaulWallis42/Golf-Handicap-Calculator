@@ -5,8 +5,22 @@
 
 <body>
 
-<form id='score-card'>
-</form>
+  <% if session[:email] %>
+  <h2>Oak Park</h2>
+    <form id='score-card-form' action='/holes' method='post'>
+      <select id='score-card-select'><option>Select a hole</option></select>
+      <label>Shots:</label>
+      <input type='text' style="width: 30px" name='shots'>
+      <label>Putts:</label>
+      <input type='text' style="width: 30px" name='putts'>
+      <input type='submit' name='Submit'>
+      <div class='hole-swap'></div>
+    </form>
+  <% else %>
+    <h2>You must sign in to add holes</h2>
+  <% end %>
+  <h4><a href='/'>Click to finish and return to home</a></h4>
+
 
   <script src="../scripts.js"></script>
 </body>

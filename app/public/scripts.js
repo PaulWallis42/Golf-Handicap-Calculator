@@ -21,26 +21,27 @@ $( document ).ready(function() {
     { number: 18, par: 4, si: 15, distance: 288 }
   ]
 
-/*
+
 $.each(oakPark, function(index, value){
-  $('#score-card').append(
-    '<p>Hole: ' + value.number +
-    ' - Par: ' + value.par +
-    ' - Stroke Index: ' + value.si +
-    ' - Distance: ' + value.distance + '</p>' +
-    '<label>Score: </label>' +
-    '<input type="number" style="width: 40px" name="score-' + value.number + '"> ' +
-    '<label>Putts Taken: </label>' +
-    '<input type="number" style="width: 40px" name="putts-' + value.number + '">' +
-    '<input type="hidden" name="hole-number-' + value.number + '" value="' + value.number + '">' +
-    '<input type="hidden" name="hole-par-' + value.number + '" value="' + value.par + '">' +
-    '<input type="hidden" name="hole-si-' + value.number + '" value="' + value.si + '">' +
-    '<input type="hidden" name="hole-distance-' + value.number + '" value="' + value.distance + '">'
+  $('#score-card-select').append(
+    "<option " + "value='" + value.number + "'" + ">Hole: " + value.number + " - Par: " + value.par +
+    " - Distance: " + value.distance + " - SI: " + value.si + "</option>"
   );
 });
 
-$('#score-card').append('<br><br><input type="submit" value="Submit">');
-*/
+$('#score-card-select').change(function(){
+  var id = $( "select#score-card-select option:checked" ).val();
+  $.each(oakPark, function(index, value){
+    if (value.number == id) {
+      $('.hole-swap').replaceWith(
+        '<div class="hole-swap"><input class="hole-swap" type="hidden" name="hole-number"' + 'value="' + value.number + '">' +
+        '<input type="hidden" name="hole-par"' + 'value="' + value.par + '">' +
+        '<input type="hidden" name="hole-si"' + 'value="' + value.si + '">' +
+        '<input type="hidden" name="hole-distance"' + 'value="' + value.distance + '"></div>'
+      )
+    };
+  });
+});
 
 
 });
