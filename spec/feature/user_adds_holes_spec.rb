@@ -27,7 +27,7 @@ feature 'user can add holes' do
     click_button('Submit')
     select('Hole: 3 - Par: 3 - Distance: 157 - SI: 12', from: 'score-card-select')
     click_button('Submit')
-    expect(page).to have_content("Shots can't be left blank")
+    expect(accept_alert).to eq("Shots can't be left blank")
     expect(Hole.all.length).to eq(0)
   end
 
