@@ -66,7 +66,15 @@ class GolfTracker < Sinatra::Base
   end
 
   post '/holes' do
-    puts params
+    user = User.first(email: session[:email])
+    round = Round.last(user_id: user.id)
+    round.holes.create(number: params[:number],
+                      par: params[:par],
+                      si: params[:si],
+                      distance: params[:distance],
+                      shots: params[:shots],
+                      putts: params[:putts])
+
     redirect '/holes/new'
   end
 

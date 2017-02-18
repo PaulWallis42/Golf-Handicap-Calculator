@@ -11,7 +11,6 @@ feature 'once signed in' do
     expect(round.course).to eq('Oak Park')
     expect(round.date.to_s).to eq('2017-02-14')
     expect(round.score).to eq(95)
-    p round
   end
 
 end

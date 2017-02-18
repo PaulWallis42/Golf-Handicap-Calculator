@@ -34,10 +34,10 @@ $('#score-card-select').change(function(){
   $.each(oakPark, function(index, value){
     if (value.number == id) {
       $('.hole-swap').replaceWith(
-        '<div class="hole-swap"><input class="hole-swap" type="hidden" name="hole-number"' + 'value="' + value.number + '">' +
-        '<input type="hidden" name="hole-par"' + 'value="' + value.par + '">' +
-        '<input type="hidden" name="hole-si"' + 'value="' + value.si + '">' +
-        '<input type="hidden" name="hole-distance"' + 'value="' + value.distance + '"></div>'
+        '<div class="hole-swap"><input type="hidden" name="number"' + 'value="' + value.number + '">' +
+        '<input type="hidden" name="par"' + 'value="' + value.par + '">' +
+        '<input type="hidden" name="si"' + 'value="' + value.si + '">' +
+        '<input type="hidden" name="distance"' + 'value="' + value.distance + '"></div>'
       )
     };
   });
