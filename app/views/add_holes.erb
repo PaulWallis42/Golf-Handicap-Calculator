@@ -1,27 +1,18 @@
-<head>
-  <meta charset="utf-8">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-</head>
-
-<body>
-
-  <% if session[:email] %>
-  <h2>Oak Park</h2>
-    <form id='score-card-form' action='/holes' method='post'>
-      <select id='score-card-select'><option>Select a hole</option></select>
-      <label>Shots:</label>
-      <input type='text' style="width: 30px" name='shots' id='shots'>
-      <label>Putts:</label>
-      <input type='text' style="width: 30px" name='putts'>
-      <input type='submit' value='Submit' id='button-id'>
-      <div class='hole-swap'></div>
-    </form>
-  <% else %>
-    <h2>You must sign in to add holes</h2>
-  <% end %>
-  <h4><a href='/'>Click to finish and return to home</a></h4>
+<% if session[:email] %>
+    <h2>Oak Park</h2>
+      <form id='score-card-form' action='/holes' method='post'>
+        <select id='score-card-select'><option>Select a hole</option></select>
+        <label>Shots:</label>
+        <input type='text' style="width: 30px" name='shots' id='shots'>
+        <label>Putts:</label>
+        <input type='text' style="width: 30px" name='putts'>
+        <input type='submit' value='Submit' id='hole-button'>
+        <div class='hole-swap'></div>
+      </form>
+    <% else %>
+      <h2>You must sign in to add holes</h2>
+    <% end %>
+    <h4><a href='/'>Click to finish and return to home</a></h4>
 
 
-  <script src="../scripts.js"></script>
-</body>
-</html>
+    <script src="../holes-scripts.js"></script>

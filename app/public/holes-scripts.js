@@ -43,7 +43,7 @@ $('#score-card-select').change(function(){
   });
 });
 
-$('#button-id').click(function(event){
+$('#hole-button').click(function(event){
   if ($('#shots').val() == "") {
       event.preventDefault();
       alert("Shots can't be left blank");

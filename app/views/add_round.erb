@@ -1,15 +1,17 @@
-<% if session[:email] %>
-  <form method='post' action='/round'>
-    <label>Course:</label>
-    <select name='course'>
-      <option value="Oak Park">Oak Park</option>
-    </select>
-    <label>Date:</label>
-    <input type='text' placeholder='eg 25/12/2016' name='date'>
-    <label>Score:</label>
-    <input type='text' placeholder='eg 72' name='score'>
-    <input type='submit' value='Submit'>
-  </form>
-<% else %>
-  <h2>You must sign in to add a round</h2>
-<% end %>
+  <% if session[:email] %>
+    <form method='post' action='/round'>
+      <label>Course:</label>
+      <select name='course'>
+        <option value="Oak Park">Oak Park</option>
+      </select>
+      <label>Date:</label>
+      <input id="date" type='text' placeholder='eg 25/12/2016' name='date'>
+      <label>Score:</label>
+      <input id="score" type='text' placeholder='eg 72' name='score'>
+      <input id='round-button' type='submit' value='Submit'>
+    </form>
+  <% else %>
+    <h2>You must sign in to add a round</h2>
+  <% end %>
+
+  <script src="../rounds-scripts.js"></script>
