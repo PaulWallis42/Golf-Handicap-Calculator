@@ -19,4 +19,16 @@ feature 'user can add holes' do
     expect(hole.putts).to eq(2)
   end
 
+  scenario 'can not add holes if fields left empty', js: true do
+    sign_up
+    click_link('Add a round')
+    fill_in('date', with: '01/02/2003')
+    fill_in('score', with: '100')
+    click_button('Submit')
+    select('Hole: 3 - Par: 3 - Distance: 157 - SI: 12', from: 'score-card-select')
+    click_button('Submit')
+    expect(page).to have_content("Shots can't be left blank")
+    expect(Hole.all.length).to eq(0)
+  end
+
 end

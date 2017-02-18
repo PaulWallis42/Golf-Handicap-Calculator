@@ -43,5 +43,13 @@ $('#score-card-select').change(function(){
   });
 });
 
+$('#button-id').click(function(event){
+  if ($('#shots').val() == "") {
+      event.preventDefault();
+      $('body').append("Shots can't be left blank");
+  }
+});
+
+
 
 });
