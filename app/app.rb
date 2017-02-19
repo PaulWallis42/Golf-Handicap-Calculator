@@ -18,10 +18,7 @@ class GolfTracker < Sinatra::Base
   end
 
   post '/users/sign_up' do
-    hashed_password = BCrypt::Password.create(params[:password])
-    user = User.new(email: params[:email],
-                    name: params[:name],
-                    password: hashed_password)
+    user = User.make_new(params)
     if user.save
       session[:email] = params[:email]
       redirect '/'
@@ -36,8 +33,7 @@ class GolfTracker < Sinatra::Base
   end
 
   post '/users/sign_in' do
-    user = User.first(email: params[:email])
-    if user && BCrypt::Password.new(user.password) == params[:password]
+    if User.authenticate(params)
       session[:email] = params[:email]
       redirect ('/')
     else
@@ -56,8 +52,7 @@ class GolfTracker < Sinatra::Base
   end
 
   post '/round' do
-    user = User.first(email: session[:email])
-    user.rounds.create(date: params[:date], course: params[:course], score: params[:score])
+    Round.round_create(session, params)
     redirect '/holes/new'
   end
 
@@ -66,15 +61,7 @@ class GolfTracker < Sinatra::Base
   end
 
   post '/holes' do
-    user = User.first(email: session[:email])
-    round = Round.last(user_id: user.id)
-    round.holes.create(number: params[:number],
-                      par: params[:par],
-                      si: params[:si],
-                      distance: params[:distance],
-                      shots: params[:shots],
-                      putts: params[:putts])
-
+    Hole.hole_create(session, params)
     redirect '/holes/new'
   end
 

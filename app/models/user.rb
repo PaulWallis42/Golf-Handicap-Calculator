@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User
   include DataMapper::Resource
 
@@ -8,5 +10,17 @@ class User
   property :handicap, Integer
 
   has n, :rounds
+
+  def self.make_new(params)
+    hashed_password = BCrypt::Password.create(params[:password])
+    User.new( email: params[:email],
+              name: params[:name],
+              password: hashed_password )
+  end
+
+  def self.authenticate(params)
+    user = User.first(email: params[:email])
+    user && BCrypt::Password.new(user.password) == params[:password]
+  end
 
 end

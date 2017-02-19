@@ -9,4 +9,11 @@ class Round
   has n, :holes
   belongs_to :user
 
+  def self.round_create(session, params)
+    user = User.first(email: session[:email])
+    user.rounds.create( date: params[:date],
+                        course: params[:course],
+                        score: params[:score] )
+  end
+
 end

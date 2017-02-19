@@ -11,4 +11,15 @@ class Hole
 
   belongs_to :round
 
+  def self.hole_create(session, params)
+    user = User.first(email: session[:email])
+    round = Round.last(user_id: user.id)
+    round.holes.create( number: params[:number],
+                        par: params[:par],
+                        si: params[:si],
+                        distance: params[:distance],
+                        shots: params[:shots],
+                        putts: params[:putts] )
+  end
+
 end
