@@ -15,6 +15,14 @@ def record_round
   click_button 'Submit'
 end
 
+def record_high_round
+  click_link 'Add a round'
+  select('Oak Park', from: 'course')
+  fill_in('date', with: '14/02/2017')
+  fill_in('score', with: 110)
+  click_button 'Submit'
+end
+
 def record_holes
   i = 1
   while i < 19 do

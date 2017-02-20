@@ -4,6 +4,7 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'rack-flash'
 require 'bcrypt'
+require './app/lib/handicap'
 
 class GolfTracker < Sinatra::Base
   enable :sessions
@@ -55,7 +56,7 @@ class GolfTracker < Sinatra::Base
     Round.round_create(session, params)
     user = User.first(email: session[:email])
     handicap = Handicap.calculate(user)
-    user.handicap = handicap
+    handicap <= 28 ? user.handicap = handicap : user.handicap = 28
     user.save
     redirect '/holes/new'
   end
