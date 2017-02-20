@@ -71,6 +71,11 @@ class GolfTracker < Sinatra::Base
     redirect '/holes/new'
   end
 
+  get '/users/:id' do
+    @user = User.first(email: session[:email])
+    erb :'users_profile'
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

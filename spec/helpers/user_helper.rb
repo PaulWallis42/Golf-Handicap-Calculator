@@ -32,4 +32,5 @@ def record_holes
     click_button('Submit')
     i += 1
   end
+  click_link('Home')
 end

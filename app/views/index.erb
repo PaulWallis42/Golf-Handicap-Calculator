@@ -1,6 +1,7 @@
 <% if @user %>
   <%= "Welcome to golf tracker #{@user.name}" %>
   <a href="/round/new">Add a round</a>
+  <a href="/users/<%= @user.id %>">Profile Page</a>
 <% end %>
 
 <!--
