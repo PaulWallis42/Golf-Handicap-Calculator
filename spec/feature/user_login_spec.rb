@@ -27,7 +27,7 @@ feature 'Signing up' do
     fill_in 'email', with: 'first_user@email.com'
     fill_in 'password', with: 'password'
     click_button 'Submit'
-    expect(page).to have_content('Welcome to golf tracker first_user@email.com')
+    expect(page).to have_content('Welcome to golf tracker First User')
     expect(current_path).to eq('/')
     expect(page).not_to have_content('Sign up')
     expect(page).to have_content('Sign out')

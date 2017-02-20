@@ -11,6 +11,7 @@ class GolfTracker < Sinatra::Base
   use Rack::Flash
 
   get '/' do
+    @user = User.first(email: session[:email])
     erb :'index'
   end
 

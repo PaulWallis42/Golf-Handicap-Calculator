@@ -1,5 +1,5 @@
-<% if session[:email] %>
-  <%= "Welcome to golf tracker #{session[:email]}" %>
+<% if @user %>
+  <%= "Welcome to golf tracker #{@user.name}" %>
   <a href="/round/new">Add a round</a>
 <% end %>
 
@@ -9,5 +9,5 @@
       Winner Stroke Play
       Winner Handicap Play
       Three Putts Award
-      
+
 -->
