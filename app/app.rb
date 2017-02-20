@@ -53,6 +53,10 @@ class GolfTracker < Sinatra::Base
 
   post '/round' do
     Round.round_create(session, params)
+    user = User.first(email: session[:email])
+    handicap = Handicap.calculate(user)
+    user.handicap = handicap
+    user.save
     redirect '/holes/new'
   end
 
