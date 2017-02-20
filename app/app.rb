@@ -76,6 +76,7 @@ class GolfTracker < Sinatra::Base
 
   get '/users/:id' do
     @user = User.first(email: session[:email])
+    @rounds = @user.rounds.all
     erb :'users_profile'
   end
 
