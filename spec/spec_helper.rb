@@ -10,11 +10,10 @@ require 'rspec'
 require 'database_cleaner'
 require 'capybara/poltergeist'
 
-require_relative 'helpers/user_helper.rb'
+require_relative 'helpers/user_helper'
 
-require './app/data_mapper_setup.rb'
-
-require './app/models/user.rb'
+require './app/data_mapper_setup'
+require './app/lib/handicap'
 
 Capybara.javascript_driver = :poltergeist
 
