@@ -63,6 +63,9 @@ class GolfTracker < Sinatra::Base
   end
 
   get '/holes/new' do
+    user = User.first(email: session[:email])
+    round = user.rounds.last
+    @hole = round.holes.last
     erb :'add_holes'
   end
 

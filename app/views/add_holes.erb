@@ -12,7 +12,11 @@
     <% else %>
       <h2>You must sign in to add holes</h2>
     <% end %>
+
+    <% if @hole && @hole.number != 18 %>
+      <p>The last hole you submited was hole: <%= @hole.number %></p>
+    <% end %>
+
+
     <h4><a href='/'>Click to finish and return to home</a></h4>
-
-
     <script src="../holes-scripts.js"></script>
