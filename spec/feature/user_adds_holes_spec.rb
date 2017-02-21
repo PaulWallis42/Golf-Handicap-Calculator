@@ -18,7 +18,7 @@ feature 'user can add holes' do
     sign_up
     record_round
     click_button('Submit')
-    expect(accept_alert).to eq("Shots can't be left blank")
+    expect(accept_alert).to eq("You must provide a value for shots and putts")
     expect(Hole.all.length).to eq(0)
   end
 

@@ -64,9 +64,6 @@ class GolfTracker < Sinatra::Base
   end
 
   get '/holes/new/:id' do
-#    user = User.first(email: session[:email])
-#    round = user.rounds.last
-#    @hole = round.holes.last
     @course_hole = OakPark.first(hole_number: params[:id])
     erb :'add_holes'
   end

@@ -1,9 +1,9 @@
 $( document ).ready(function() {
 
   $('#hole-button').click(function(event){
-    if ($('#shots').val() == "") {
+    if ($('#shots').val() == "" || $('#putts').val() == "") {
         event.preventDefault();
-        alert("Shots can't be left blank");
+        alert("You must provide a value for shots and putts");
     }
   });
 
