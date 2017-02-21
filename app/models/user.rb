@@ -1,6 +1,7 @@
 require 'bcrypt'
 
 class User
+  DEFAULT_HANDICAP = 28
   include DataMapper::Resource
 
   property :id,       Serial
@@ -15,7 +16,8 @@ class User
     hashed_password = BCrypt::Password.create(params[:password])
     User.new( email: params[:email],
               name: params[:name],
-              password: hashed_password )
+              password: hashed_password,
+              handicap: DEFAULT_HANDICAP )
   end
 
   def self.authenticate(params)
