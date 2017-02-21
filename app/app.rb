@@ -5,6 +5,7 @@ require_relative 'data_mapper_setup'
 require 'rack-flash'
 require 'bcrypt'
 require './app/lib/handicap'
+require './app/lib/stableford'
 
 class GolfTracker < Sinatra::Base
   enable :sessions

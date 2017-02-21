@@ -8,6 +8,13 @@ feature 'Signing up' do
     expect(current_path).to eq('/')
   end
 
+  scenario 'on sign up has to provide email and password', js: true do
+    visit('/')
+    click_link('Sign up')
+    click_button('Submit')
+    expect(accept_alert).to eq("You have to provide an e mail & password")
+  end
+
   scenario 'user can only sign up with unique email' do
     sign_up
     click_link('Sign out')
