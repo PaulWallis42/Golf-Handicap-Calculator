@@ -1,22 +1,20 @@
-<% if session[:email] %>
-    <h2>Oak Park</h2>
-      <form id='score-card-form' action='/holes' method='post'>
-        <select id='score-card-select'><option>Select a hole</option></select>
-        <label>Shots:</label>
-        <input type='text' style="width: 30px" name='shots' id='shots'>
-        <label>Putts:</label>
-        <input type='text' style="width: 30px" name='putts'>
-        <input type='submit' value='Submit' id='hole-button'>
-        <div class='hole-swap'></div>
-      </form>
-    <% else %>
-      <h2>You must sign in to add holes</h2>
-    <% end %>
+<h2>
+    Hole: <%= @course_hole.hole_number %> -
+    Par: <%= @course_hole.hole_par %> -
+    Distance: <%= @course_hole.hole_distance %> -
+    Stroke Index: <%= @course_hole.hole_si %>
+</h2>
 
-    <% if @hole && @hole.number != 18 %>
-      <p>The last hole you submited was hole: <%= @hole.number %></p>
-    <% end %>
+<form action='/holes' method='post'>
+  <label>Shots:</label>
+  <input id='shots' type='text' style='width: 30px' name='shots'>
+  <label>Putts:</label>
+  <input type='text' style='width: 30px' name='putts'>
+  <input type='hidden' name='number' value='<%= @course_hole.hole_number %>'>
+  <input type='hidden' name='par' value='<%= @course_hole.hole_par %>'>
+  <input type='hidden' name='si' value='<%= @course_hole.hole_si %>'>
+  <input type='hidden' name='distance' value='<%= @course_hole.hole_distance %>'>
+  <input id='hole-button' type='submit' value='Submit'>
+</form>
 
-
-    <h4><a href='/'>Click to finish and return to home</a></h4>
-    <script src="../holes-scripts.js"></script>
+<script src="../../holes-scripts.js"></script>

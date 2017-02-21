@@ -26,7 +26,6 @@ end
 def record_holes
   i = 1
   while i < 19 do
-    find('#score-card-select').find("option[value='#{i}']").select_option
     fill_in('shots', with: 5)
     fill_in('putts', with: 2)
     click_button('Submit')

@@ -4,6 +4,10 @@
   <a href="/users/<%= @user.id %>">Profile Page</a>
 <% end %>
 
+<% if flash[:holes] %>
+  <%= flash[:holes] %>
+<% end %>
+
 <!--
   Display awards here:
 

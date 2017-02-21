@@ -17,7 +17,6 @@ feature 'user can add holes' do
   scenario 'can not add holes if fields left empty', js: true do
     sign_up
     record_round
-    select('Hole: 3 - Par: 3 - Distance: 157 - SI: 12', from: 'score-card-select')
     click_button('Submit')
     expect(accept_alert).to eq("Shots can't be left blank")
     expect(Hole.all.length).to eq(0)

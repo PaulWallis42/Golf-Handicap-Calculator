@@ -59,19 +59,26 @@ class GolfTracker < Sinatra::Base
     handicap = Handicap.calculate(user)
     handicap <= 28 ? user.handicap = handicap : user.handicap = 28
     user.save
-    redirect '/holes/new'
+    redirect '/holes/new/1'
   end
 
-  get '/holes/new' do
-    user = User.first(email: session[:email])
-    round = user.rounds.last
-    @hole = round.holes.last
+  get '/holes/new/:id' do
+#    user = User.first(email: session[:email])
+#    round = user.rounds.last
+#    @hole = round.holes.last
+    @course_hole = OakPark.first(hole_number: params[:id])
     erb :'add_holes'
   end
 
   post '/holes' do
     Hole.hole_create(session, params)
-    redirect '/holes/new'
+    hole_num = params[:number].to_i + 1
+    if hole_num <= 18
+      redirect "/holes/new/#{hole_num}"
+    else
+      flash[:holes] = "Round entered successfully"
+      redirect "/"
+    end
   end
 
   get '/users/:id' do
