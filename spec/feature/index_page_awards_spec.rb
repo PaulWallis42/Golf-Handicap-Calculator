@@ -21,7 +21,7 @@ feature 'awards acheived' do
     end
 
     scenario 'the loser of the three putts is dispalyed on the home page' do
-      expect(page).to have_content('C3PO Winner: First User with 18 three putts')
+      expect(page).to have_content('C3PO Loser: First User with 18 three putts')
     end
   end
 end

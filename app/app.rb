@@ -9,15 +9,7 @@ class GolfTracker < Sinatra::Base
   get '/' do
     @user = User.first(email: session[:email])
     round = Round.all
-    @winning_round_stroke = StrokePlayComp.winner(round)
-    @winning_round_stableford = StablefordPlayComp.winner(round)
-    @winning_round_three_putt = ThreePuttComp.winner(round)
-    if @winning_round_stroke
-      @winning_user_stableford = User.first(id: @winning_round_stableford.user_id)
-      @winning_user_stroke = User.first(id: @winning_round_stroke.user_id)
-      @winning_user_three_putt = User.first(id: @winning_round_three_putt.user_id)
-      @three_putt_total = ThreePuttComp.get_three_putts(@winning_round_three_putt)
-    end
+    @winners = ControlHelper.competition_winners(round)
     erb :'index'
   end
 
