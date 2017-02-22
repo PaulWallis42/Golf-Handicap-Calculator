@@ -1,4 +1,4 @@
-class StrokePlayComp
+class ThreePuttComp
 
   def self.winner(all_rounds)
     @all_rounds = all_rounds
@@ -23,9 +23,19 @@ class StrokePlayComp
   end
 
   def self.get_winner
-    @selected_rounds.min_by do |round|
-      round.score
+    @selected_rounds.max_by do |round|
+      round.holes.count(:putts.gt => 2)
     end
+  end
+
+  def self.get_three_putts(round)
+    i = 0
+    round.holes.each do |hole|
+      if hole.putts > 2
+        i += 1
+      end
+    end
+    return i
   end
 
 end

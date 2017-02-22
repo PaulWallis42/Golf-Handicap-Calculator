@@ -16,6 +16,7 @@ require './app/data_mapper_setup'
 require './app/lib/handicap'
 require './app/lib/stableford'
 require './app/lib/stroke_play_comp'
+require './app/lib/three_putt_comp'
 
 Capybara.javascript_driver = :poltergeist
 

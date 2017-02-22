@@ -13,6 +13,7 @@ class StablefordPlayComp
     rounds_array.each do |round|
       if round[1] > 1
         return round
+        break
       end
     end
   end
