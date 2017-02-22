@@ -6,6 +6,7 @@ require 'rack-flash'
 require 'bcrypt'
 require './app/lib/handicap'
 require './app/lib/stableford'
+require './app/lib/stroke_play_comp'
 
 class GolfTracker < Sinatra::Base
   enable :sessions
@@ -13,6 +14,10 @@ class GolfTracker < Sinatra::Base
 
   get '/' do
     @user = User.first(email: session[:email])
+    @winning_round = StrokePlayComp.winner(Round.all)
+    if @winning_round
+      @winning_user = User.first(id: @winning_round.user_id)
+    end
     erb :'index'
   end
 

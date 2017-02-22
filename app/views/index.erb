@@ -8,11 +8,7 @@
   <%= flash[:holes] %>
 <% end %>
 
-<!--
-  Display awards here:
-
-      Winner Stroke Play
-      Winner Handicap Play
-      Three Putts Award
-
--->
+<% if @winning_round %>
+  <h1><%= "Results of #{@winning_round.course} on #{@winning_round.date.strftime("%d/%m/%Y")}" %></h1>
+  <h3><%= "Stroke Play winner: #{@winning_user.name} with score of #{@winning_round.score}" %></h3>
+<% end %>

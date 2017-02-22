@@ -3,7 +3,7 @@
 <h1><%= @user.name %> Profile Page</h1>
 <h4>Current Handicap: <%= @user.handicap %></h4>
 
-<h4>Your stroke play history:</h4>
+<h4>Your rounds history:</h4>
 <% @rounds.each do |round| %>
   <p>Date: <%= round.date.strftime("%d/%m/%Y") %> - Course: <%= round.course %> -
      Score: <%= round.score %> - Handicap at the time: <%= round.handicap %> -
