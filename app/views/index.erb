@@ -8,7 +8,8 @@
   <%= flash[:holes] %>
 <% end %>
 
-<% if @winning_round %>
-  <h1><%= "Results of #{@winning_round.course} on #{@winning_round.date.strftime("%d/%m/%Y")}" %></h1>
-  <h3><%= "Stroke Play winner: #{@winning_user.name} with score of #{@winning_round.score}" %></h3>
+<% if @winning_round_stroke %>
+  <h1><%= "Results of #{@winning_round_stroke.course} on #{@winning_round_stroke.date.strftime("%d/%m/%Y")}" %></h1>
+  <h3><%= "Stroke Play Winner: #{@winning_user_stroke.name} with score of #{@winning_round_stroke.score}" %></h3>
+  <h3><%= "Stableford Winner: #{@winning_user_stableford.name} with score of #{@winning_round_stableford.score}" %></h3>
 <% end %>

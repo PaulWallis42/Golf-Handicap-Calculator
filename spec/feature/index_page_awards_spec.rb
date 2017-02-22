@@ -13,7 +13,11 @@ feature 'awards acheived' do
 
     scenario 'the winner of the stroke score is displayed on home page' do
       expect(page).to have_content('Results of Oak Park on 14/02/2017')
-      expect(page).to have_content('Stroke Play winner: Second User with score of 72')
+      expect(page).to have_content('Stroke Play Winner: Second User with score of 72')
+    end
+
+    scenario 'the winner of the stableford is displayed on the home page' do
+      expect(page).to have_content('Stableford Winner: Second User with score of 72')
     end
   end
 end

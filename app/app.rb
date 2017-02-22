@@ -7,6 +7,7 @@ require 'bcrypt'
 require './app/lib/handicap'
 require './app/lib/stableford'
 require './app/lib/stroke_play_comp'
+require './app/lib/stableford_play_comp'
 
 class GolfTracker < Sinatra::Base
   enable :sessions
@@ -14,9 +15,12 @@ class GolfTracker < Sinatra::Base
 
   get '/' do
     @user = User.first(email: session[:email])
-    @winning_round = StrokePlayComp.winner(Round.all)
-    if @winning_round
-      @winning_user = User.first(id: @winning_round.user_id)
+    round = Round.all
+    @winning_round_stroke = StrokePlayComp.winner(round)
+    @winning_round_stableford = StablefordPlayComp.winner(round)
+    if @winning_round_stroke
+      @winning_user_stableford = User.first(id: @winning_round_stableford.user_id)
+      @winning_user_stroke = User.first(id: @winning_round_stroke.user_id)
     end
     erb :'index'
   end

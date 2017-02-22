@@ -27,7 +27,7 @@ def record_holes
   i = 1
   while i < 19 do
     fill_in('shots', with: 5)
-    fill_in('putts', with: 2)
+    fill_in('putts', with: 3)
     click_button('Submit')
     i += 1
   end

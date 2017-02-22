@@ -10,7 +10,7 @@ feature 'user can add holes' do
     expect(hole.distance).to eq(405)
     expect(hole.si).to eq(4)
     expect(hole.shots).to eq(5)
-    expect(hole.putts).to eq(2)
+    expect(hole.putts).to eq(3)
     expect(Hole.all.length).to eq(18)
   end
 
