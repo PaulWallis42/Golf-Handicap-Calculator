@@ -5,5 +5,6 @@ feature 'user has enterd a round' do
     record_holes
     expect(Round.last.handicap).to eq(28)
     expect(Round.last.stableford).to eq(44)
+    expect(Round.last.holes.first.shots).to eq(5)
   end
 end

@@ -6,7 +6,8 @@
 <h4>Your stroke play history:</h4>
 <% @rounds.each do |round| %>
   <p>Date: <%= round.date.strftime("%d/%m/%Y") %> - Course: <%= round.course %> -
-     Score: <%= round.score %> - Handicap at the time: <%= round.handicap %>
+     Score: <%= round.score %> - Handicap at the time: <%= round.handicap %> -
+     Stableford Score: <%= round.stableford %>
   </p>
   <br>
 <% end %>

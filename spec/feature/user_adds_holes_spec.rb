@@ -1,6 +1,6 @@
 feature 'user can add holes' do
 
-  scenario 'after adding a round a user can add holes', js: true do
+  scenario 'after adding a round', js: true do
     sign_up
     record_round
     record_holes

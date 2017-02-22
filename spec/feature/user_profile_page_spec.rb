@@ -9,6 +9,7 @@ feature 'users profile page' do
       expect(page).to have_content('First User Profile Page')
       expect(page).to have_content('Current Handicap: 25')
       expect(page).to have_content('Handicap at the time: 28')
+      expect(page).to have_content('Stableford Score: 44')
     end
   end
 end
