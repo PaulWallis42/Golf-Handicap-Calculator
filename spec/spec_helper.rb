@@ -14,6 +14,7 @@ require_relative 'helpers/user_helper'
 
 require './app/data_mapper_setup'
 require './app/lib/handicap'
+require './app/lib/stableford'
 
 Capybara.javascript_driver = :poltergeist
 

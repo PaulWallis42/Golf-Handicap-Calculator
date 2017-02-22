@@ -74,6 +74,10 @@ class GolfTracker < Sinatra::Base
     if hole_num <= 18
       redirect "/holes/new/#{hole_num}"
     else
+      round = Round.last
+      stableford = Stableford.calculate(round)
+      round.stableford = stableford
+      round.save
       flash[:holes] = "Round entered successfully"
       redirect "/"
     end
