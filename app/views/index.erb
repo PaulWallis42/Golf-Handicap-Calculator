@@ -11,6 +11,6 @@
 <% if @winning_round_stroke %>
   <h1><%= "Results of #{@winning_round_stroke.course} on #{@winning_round_stroke.date.strftime("%d/%m/%Y")}" %></h1>
   <h3><%= "Stroke Play Winner: #{@winning_user_stroke.name} with score of #{@winning_round_stroke.score}" %></h3>
-  <h3><%= "Stableford Winner: #{@winning_user_stableford.name} with score of #{@winning_round_stableford.score}" %></h3>
+  <h3><%= "Stableford Winner: #{@winning_user_stableford.name} with score of #{@winning_round_stableford.stableford}" %></h3>
   <h3><%= "C3PO Winner: #{@winning_user_three_putt.name} with #{@three_putt_total} three putts" %></h3>
 <% end %>
