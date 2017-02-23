@@ -52,5 +52,4 @@ class ControlHelper
     @comp_hash[:three_putt_total] = ThreePuttComp.get_three_putts(@comp_hash[:winning_round_three_putt])
   end
 
-
 end

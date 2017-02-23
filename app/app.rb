@@ -9,6 +9,7 @@ class GolfTracker < Sinatra::Base
   get '/' do
     @user = User.first(email: session[:email])
     round = Round.all
+    @players = Competition.players(round)
     @winners = ControlHelper.competition_winners(round)
     erb :'index'
   end
