@@ -10,12 +10,12 @@ require './app/lib/three_putt_comp'
 
 class ControlHelper
 
-  def self.competition_winners(round)
+  def self.competition_winners(rounds)
     @comp_hash = {}
-    winning_round_stroke(round)
+    winning_round_stroke(rounds)
     if @comp_hash[:winning_round_stroke]
-      winning_round_stableford(round)
-      winning_round_three_putt(round)
+      winning_round_stableford(rounds)
+      winning_round_three_putt(rounds)
       winning_user_stroke
       winning_user_stableford
       winning_user_three_putt
@@ -24,16 +24,16 @@ class ControlHelper
     return @comp_hash
   end
 
-  def self.winning_round_stroke(round)
-    @comp_hash[:winning_round_stroke] = StrokePlayComp.winner(round)
+  def self.winning_round_stroke(rounds)
+    @comp_hash[:winning_round_stroke] = StrokePlayComp.winner(rounds)
   end
 
-  def self.winning_round_stableford(round)
-    @comp_hash[:winning_round_stableford] = StablefordPlayComp.winner(round)
+  def self.winning_round_stableford(rounds)
+    @comp_hash[:winning_round_stableford] = StablefordPlayComp.winner(rounds)
   end
 
-  def self.winning_round_three_putt(round)
-    @comp_hash[:winning_round_three_putt] = ThreePuttComp.winner(round)
+  def self.winning_round_three_putt(rounds)
+    @comp_hash[:winning_round_three_putt] = ThreePuttComp.winner(rounds)
   end
 
   def self.winning_user_stroke
