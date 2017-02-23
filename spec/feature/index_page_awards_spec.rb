@@ -20,8 +20,8 @@ feature 'awards acheived' do
       expect(page).to have_content('Stableford Winner: Second User with score of 62')
     end
 
-    scenario 'the loser of the three putts is dispalyed on the home page' do
-      expect(page).to have_content('C3PO Loser: First User with 18 three putts')
+    scenario 'if more than one loser in the putts comp then both displayed' do
+      expect(page).to have_content('C3PO Loser: First User Second User with 18 three putts')
     end
 
     scenario 'page displays the names of all those who played the round' do

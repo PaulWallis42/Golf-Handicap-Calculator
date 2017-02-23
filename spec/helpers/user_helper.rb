@@ -55,7 +55,7 @@ def second_user_record_holes
   i = 1
   while i < 19 do
     fill_in('shots', with: 4)
-    fill_in('putts', with: 1)
+    fill_in('putts', with: 3)
     click_button('Submit')
     i += 1
   end
