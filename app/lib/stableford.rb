@@ -39,6 +39,10 @@ class Stableford
         final_score += 3
       elsif hole.shots + 2 == hole.par
         final_score += 4
+      elsif hole.shots + 3 == hole.par
+        final_score += 5
+      elsif hole.shots + 4 == hole.par
+        final_score += 6
       end
     end
     return final_score
