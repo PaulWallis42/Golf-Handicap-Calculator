@@ -9,8 +9,11 @@ class GolfTracker < Sinatra::Base
   get '/' do
     @user = User.first(email: session[:email])
     rounds = Round.all
-    @players = Competition.players(rounds)
-    @winners = ControlHelper.competition_winners(rounds)
+    sameday_rounds = rounds.group_by { |round| round.date }
+    if sameday_rounds.any? { |rounds| rounds.length > 1 }
+      @players = Competition.players(rounds)
+      @winners = ControlHelper.competition_winners(rounds)
+    end
     erb :'index'
   end
 

@@ -8,14 +8,22 @@
   <%= flash[:holes] %>
 <% end %>
 
-<% if @winners[:winning_round_stroke] %>
-<h2><%= "Results of #{@winners[:winning_round_stroke].course} on #{@winners[:winning_round_stroke].date.strftime("%d/%m/%Y")}" %></h2>
+<% if @winners %>
+<h2><%= "Results of #{@winners[:winning_round_stroke][0][0].course} on #{@winners[:winning_round_stroke][0][0].date.strftime("%d/%m/%Y")}" %></h2>
   <h2>Competitors:
     <% @players.each do |player| %>
       <%= player %>
     <% end %>
   </h2>
-  <h3><%= "Stroke Play Winner: #{@winners[:winning_user_stroke].name} with score of #{@winners[:winning_round_stroke].score}" %></h3>
+  <h3>Stroke Play Winner:
+    <% @winners[:winning_user_stroke].each do |player| %>
+      <%= player %>
+    <% end %>
+    <%= " with score of #{@winners[:winning_round_stroke][0][0].score}"%>
+  </h3>
+
+
+
   <h3><%= "Stableford Winner: #{@winners[:winning_user_stableford].name} with score of #{@winners[:winning_round_stableford].stableford}" %></h3>
   <h3><%= "C3PO Loser: #{@winners[:winning_user_three_putt].name} with #{@winners[:three_putt_total]} three putts" %></h3>
 <% end %>

@@ -12,15 +12,13 @@ class ControlHelper
 
   def self.competition_winners(rounds)
     @comp_hash = {}
-    winning_round_stroke(rounds)
-    if @comp_hash[:winning_round_stroke]
+      winning_round_stroke(rounds)
       winning_round_stableford(rounds)
       winning_round_three_putt(rounds)
       winning_user_stroke
       winning_user_stableford
       winning_user_three_putt
       three_putt_total
-    end
     return @comp_hash
   end
 
@@ -37,7 +35,11 @@ class ControlHelper
   end
 
   def self.winning_user_stroke
-    @comp_hash[:winning_user_stroke] = User.first(id: @comp_hash[:winning_round_stroke].user_id)
+    player_name_array = []
+    @comp_hash[:winning_round_stroke][0].each do |round|
+      player_name_array << User.first(id: round.user_id).name
+    end
+    @comp_hash[:winning_user_stroke] = player_name_array
   end
 
   def self.winning_user_stableford
