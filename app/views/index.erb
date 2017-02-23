@@ -21,9 +21,14 @@
     <% end %>
     <%= " with score of #{@winners[:winning_round_stroke][0][0].score}"%>
   </h3>
+  <h3>Stableford Winner:
+    <% @winners[:winning_user_stableford].each do |player| %>
+      <%= player %>
+    <% end %>
+    <%= " with score of #{@winners[:winning_round_stableford][0][0].stableford}"%>
+  </h3>
 
 
 
-  <h3><%= "Stableford Winner: #{@winners[:winning_user_stableford].name} with score of #{@winners[:winning_round_stableford].stableford}" %></h3>
   <h3><%= "C3PO Loser: #{@winners[:winning_user_three_putt].name} with #{@winners[:three_putt_total]} three putts" %></h3>
 <% end %>

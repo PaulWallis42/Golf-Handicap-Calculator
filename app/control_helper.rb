@@ -43,7 +43,11 @@ class ControlHelper
   end
 
   def self.winning_user_stableford
-    @comp_hash[:winning_user_stableford] = User.first(id: @comp_hash[:winning_round_stableford].user_id)
+    player_name_array = []
+    @comp_hash[:winning_round_stableford][0].each do |round|
+      player_name_array << User.first(id: round.user_id).name
+    end
+    @comp_hash[:winning_user_stableford] = player_name_array
   end
 
   def self.winning_user_three_putt
