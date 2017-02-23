@@ -10,7 +10,7 @@ class GolfTracker < Sinatra::Base
     @user = User.first(email: session[:email])
     rounds = Round.all
     sameday_rounds = rounds.group_by { |round| round.date }
-    if sameday_rounds.any? { |rounds| rounds.length > 1 }
+    if sameday_rounds.any? { |date, round| round.length > 1 }
       @players = Competition.players(rounds)
       @winners = ControlHelper.competition_winners(rounds)
     end
