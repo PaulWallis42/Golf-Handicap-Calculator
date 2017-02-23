@@ -9,7 +9,8 @@
 <% end %>
 
 <% if @winners %>
-<h2><%= "Results of #{@winners[:winning_round_stroke][0][0].course} on #{@winners[:winning_round_stroke][0][0].date.strftime("%d/%m/%Y")}" %></h2>
+<h2><%= "Results of #{@winners[:winning_round_stroke][0][0].course} on
+        #{@winners[:winning_round_stroke][0][0].date.strftime("%d/%m/%Y")}" %></h2>
   <h2>Competitors:
     <% @players.each do |player| %>
       <%= player %>
@@ -27,8 +28,10 @@
     <% end %>
     <%= " with score of #{@winners[:winning_round_stableford][0][0].stableford}"%>
   </h3>
-
-
-
-  <h3><%= "C3PO Loser: #{@winners[:winning_user_three_putt].name} with #{@winners[:three_putt_total]} three putts" %></h3>
+  <h3>C3PO Loser:
+    <% @winners[:winning_user_three_putt].each do |player| %>
+      <%= player %>
+    <% end %>
+    <%= " with #{@winners[:three_putt_total]} three putts"%>
+  </h3>
 <% end %>

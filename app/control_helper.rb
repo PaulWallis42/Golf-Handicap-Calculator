@@ -51,11 +51,15 @@ class ControlHelper
   end
 
   def self.winning_user_three_putt
-    @comp_hash[:winning_user_three_putt] = User.first(id: @comp_hash[:winning_round_three_putt].user_id)
+    player_name_array = []
+    @comp_hash[:winning_round_three_putt][0].each do |round|
+      player_name_array << User.first(id: round.user_id).name
+    end
+    @comp_hash[:winning_user_three_putt] = player_name_array
   end
 
   def self.three_putt_total
-    @comp_hash[:three_putt_total] = ThreePuttComp.get_three_putts(@comp_hash[:winning_round_three_putt])
+    @comp_hash[:three_putt_total] = ThreePuttComp.get_three_putts
   end
 
 end
