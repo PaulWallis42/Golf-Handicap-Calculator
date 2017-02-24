@@ -1,14 +1,15 @@
 
-
-<% if flash[:notice] %>
-  <%= flash[:notice] %>
-<% end %>
-
-<form method='post' action='/users/sign_in'>
-  <h4>Sign in:</h4>
-  <label>Email:</label>
-  <input type='text' name='email'>
-  <label>Password:</label>
-  <input type='password' name='password'>
-  <input type='submit' value='Submit'>
-</form>
+<div class="container">
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
+  
+  <form method='post' action='/users/sign_in'>
+    <h4>Sign in:</h4>
+    <label>Email:</label>
+    <input type='text' name='email'>
+    <label>Password:</label>
+    <input type='password' name='password'>
+    <input type='submit' value='Submit'>
+  </form>
+</div>
