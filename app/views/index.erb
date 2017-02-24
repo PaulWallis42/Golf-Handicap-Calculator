@@ -18,21 +18,25 @@
               #{@winners[:winning_round_stroke][0][0].date.strftime("%d/%m/%Y")}" %></h3>
     </div>
       <div class='container'>
-        <h3 class='text-center'>Competitors:
+        <h3 class='text-center'>Competitors:</h3>
+        <h3 class='text-center'>
           <% @players.each do |player| %>
-            <%= player %>
-          <% end %>
+            *** <%= player %>
+          <% end %>***
         </h3>
       </div>
 
       <div class="row">
-        <div class="col-md-4 bg-success">
-          <h3>Stroke Play Winner:
-            <% @winners[:winning_user_stroke].each do |player| %>
+        <div class="col-md-4">
+          <h3 class='text-center'>Stroke Play Winner:</h3>
+            <h4 class='text-center'> <% @winners[:winning_user_stroke].each do |player| %>
               <%= player %>
             <% end %>
-            <%= " with score of #{@winners[:winning_round_stroke][0][0].score}"%>
-          </h3>
+          </h4>
+          <h4 class='text-center'>
+            <%= "Round of #{@winners[:winning_round_stroke][0][0].score}"%>
+          </h4>
+          <img id="c3po" src="http://thefwoosh.com/wp-content/uploads/2015/08/Medicom-MAFEX-No-012-Star-Wars-C3PO-Promo.jpg">
         </div>
 
         <div class="col-md-4">
