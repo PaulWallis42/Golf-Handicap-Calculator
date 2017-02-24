@@ -1,13 +1,31 @@
 <div class="container">
-  <h1 class="text-center"><%= @user.name %> Profile Page</h1>
-  <h4 class="text-center">Current Handicap: <%= @user.handicap %></h4>
+  <div class="jumbotron text-center">
+    <h2 class="text-center"><%= @user.name %> Profile Page</h2>
+    <h4 class="text-center">Current Handicap: <%= @user.handicap %></h4>
+  </div>
+</div>
 
-  <h4>Your rounds history:</h4>
+
+<div class='container'>
+  <h3 class='text-center'>Playing History:</h3>
+  <table class="table table-condensed">
+    <tr class="info">
+      <th class='text-center'>Date</th>
+      <th class='text-center'>Course</th>
+      <th class='text-center'>Handicap</th>
+      <th class='text-center'>Strokes</th>
+      <th class='text-center'>Stableford</th>
+    </tr>
   <% @rounds.each do |round| %>
-    <p>Date: <%= round.date.strftime("%d/%m/%Y") %> - Course: <%= round.course %> -
-       Score: <%= round.score %> - Handicap at the time: <%= round.handicap %> -
-       Stableford Score: <%= round.stableford %>
-    </p>
-    <br>
+    <tr class="success">
+      <td class='text-center'><%= round.date.strftime("%d/%m/%Y") %></td>
+      <td class='text-center'><%= round.course %></td>
+      <td class='text-center'><%= round.handicap %> </td>
+      <td class='text-center'><%= round.score %></td>
+      <td class='text-center'><%= round.stableford %></td>
+    </tr>
   <% end %>
+    </table>
+
+
 </div>

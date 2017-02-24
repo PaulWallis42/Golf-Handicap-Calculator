@@ -8,8 +8,8 @@ feature 'users profile page' do
       expect(current_path).to eq('/users/1')
       expect(page).to have_content('First User Profile Page')
       expect(page).to have_content('Current Handicap: 25')
-      expect(page).to have_content('Handicap at the time: 28')
-      expect(page).to have_content('Stableford Score: 44')
+      expect(page).to have_content('28')
+      expect(page).to have_content('44')
     end
   end
 end
