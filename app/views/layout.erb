@@ -26,10 +26,11 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a class="nav-access" href='/'>Home</a></li>
           <% if @user %>
+            <li><a class="nav-access" href='/'>Home</a></li>
             <li><a class="nav-access" href="/round/new">Add a round</a></li>
             <li><a class="nav-access" href="/users/<%= @user.id %>">Profile Page</a></li>
+            <li><a class="nav-access" target="_blank" href="http://www.oakparkgolf.co.uk/">Oak Park</a></li>
           <% end %>
         </ul>
 

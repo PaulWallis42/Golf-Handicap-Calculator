@@ -8,41 +8,46 @@
   <% end %>
 </div>
 
-
-<div class="container">
-    <% if @winners %>
-    <h3><%= "Results of #{@winners[:winning_round_stroke][0][0].course} on
-            #{@winners[:winning_round_stroke][0][0].date.strftime("%d/%m/%Y")}" %></h3>
-      <h3 class='text-center'>Competitors:
-        <% @players.each do |player| %>
-          <%= player %>
+<% if @user %>
+  <div class="container">
+      <% if @winners %>
+      <h3><%= "Results of #{@winners[:winning_round_stroke][0][0].course} on
+              #{@winners[:winning_round_stroke][0][0].date.strftime("%d/%m/%Y")}" %></h3>
+        <h3 class='text-center'>Competitors:
+          <% @players.each do |player| %>
+            <%= player %>
+          <% end %>
+        </h3>
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Stroke Play Winner:
+            <% @winners[:winning_user_stroke].each do |player| %>
+              <%= player %>
+            <% end %>
+            <%= " with score of #{@winners[:winning_round_stroke][0][0].score}"%>
+          </h3>
+        </div>
+        <div class="col-md-4">
+          <h3>Stableford Winner:
+            <% @winners[:winning_user_stableford].each do |player| %>
+              <%= player %>
+            <% end %>
+            <%= " with score of #{@winners[:winning_round_stableford][0][0].stableford}"%>
+          </h3>
+        </div>
+        <div class="col-md-4">
+          <h3>C3PO Loser:
+            <% @winners[:winning_user_three_putt].each do |player| %>
+              <%= player %>
+            <% end %>
+            <%= " with #{@winners[:three_putt_total]} three putts"%>
+          </h3>
         <% end %>
-      </h3>
-    <div class="row">
-      <div class="col-md-4">
-        <h3>Stroke Play Winner:
-          <% @winners[:winning_user_stroke].each do |player| %>
-            <%= player %>
-          <% end %>
-          <%= " with score of #{@winners[:winning_round_stroke][0][0].score}"%>
-        </h3>
       </div>
-      <div class="col-md-4">
-        <h3>Stableford Winner:
-          <% @winners[:winning_user_stableford].each do |player| %>
-            <%= player %>
-          <% end %>
-          <%= " with score of #{@winners[:winning_round_stableford][0][0].stableford}"%>
-        </h3>
-      </div>
-      <div class="col-md-4">
-        <h3>C3PO Loser:
-          <% @winners[:winning_user_three_putt].each do |player| %>
-            <%= player %>
-          <% end %>
-          <%= " with #{@winners[:three_putt_total]} three putts"%>
-        </h3>
-      <% end %>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="container">
+    <h1 class="text-center">The Golf Tracking & Competition Application</h1>
+  </div>
+<% end %>
