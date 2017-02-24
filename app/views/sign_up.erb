@@ -1,18 +1,28 @@
-<div class="container">
-  <% if flash[:notice] %>
-    <%= flash[:notice] %>
-  <% end %>
 
-  <form method='post' action='/users/sign_up'>
-    <h4>Sign up:</h4>
-    <label>Email:</label>
-    <input id='email' type='text' name='email'>
-    <label>Name:</label>
-    <input type='text' name='name'>
-    <label>Password:</label>
-    <input id='password' type='password' name='password'>
-    <input id='sign-up-button' type='submit' value='Submit'>
-  </form>
+
+
+<div class="jumbotron text-center">
+  <blockquote>
+    <p>Success in golf depends less on strength of body than upon strength of mind and character.</p>
+    <footer>Arnold Palmer</footer>
+  </blockquote>
+
+  <div class="container">
+    <% if flash[:notice] %>
+    <%= flash[:notice] %>
+    <% end %>
+
+    <form method='post' action='/users/sign_up'>
+      <h4>Sign up:</h4>
+      <label>Email:</label>
+      <input id='email' type='text' name='email'>
+      <label>Name:</label>
+      <input type='text' name='name'>
+      <label>Password:</label>
+      <input id='password' type='password' name='password'>
+      <input id='sign-up-button' type='submit' value='Submit'>
+    </form>
+  </div>
 </div>
 
 <script src='/sign-up-scripts.js'></script>

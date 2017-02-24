@@ -1,15 +1,22 @@
+    <div class="jumbotron text-center">
+      <blockquote>
+        <p>Golf is a compromise between what your ego wants you to do, what experience tells you to do and what your nerves let you do.</p>
+        <footer>Bruce Crampton</footer>
+      </blockquote>
 
-<div class="container">
-  <% if flash[:notice] %>
-    <%= flash[:notice] %>
-  <% end %>
-  
-  <form method='post' action='/users/sign_in'>
-    <h4>Sign in:</h4>
-    <label>Email:</label>
-    <input type='text' name='email'>
-    <label>Password:</label>
-    <input type='password' name='password'>
-    <input type='submit' value='Submit'>
-  </form>
-</div>
+
+      <div class="container sign-in-margin">
+        <% if flash[:notice] %>
+        <%= flash[:notice] %>
+        <% end %>
+
+        <form method='post' action='/users/sign_in'>
+          <h4>Sign in:</h4>
+          <label>Email:</label>
+          <input type='text' name='email'>
+          <label>Password:</label>
+          <input type='password' name='password'>
+          <input type='submit' value='Submit'>
+        </form>
+      </div>
+    </div>
