@@ -1,3 +1,4 @@
+<div class='container'>
   <% if session[:email] %>
     <form method='post' action='/round'>
       <label>Course:</label>
@@ -13,5 +14,6 @@
   <% else %>
     <h2>You must sign in to add a round</h2>
   <% end %>
+</div>
 
   <script src="/rounds-scripts.js"></script>
