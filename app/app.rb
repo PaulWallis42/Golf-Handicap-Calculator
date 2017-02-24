@@ -52,6 +52,7 @@ class GolfTracker < Sinatra::Base
   end
 
   get '/round/new' do
+    @user = User.first(email: session[:email])
     erb :'add_round'
   end
 
@@ -65,6 +66,7 @@ class GolfTracker < Sinatra::Base
   end
 
   get '/holes/new/:id' do
+    @user = User.first(email: session[:email])
     @course_hole = OakPark.first(hole_number: params[:id])
     erb :'add_holes'
   end

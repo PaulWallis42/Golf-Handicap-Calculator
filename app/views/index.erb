@@ -1,12 +1,14 @@
-<% if @user %>
-  <%= "Welcome to golf tracker #{@user.name}" %>
-  <a href="/round/new">Add a round</a>
-  <a href="/users/<%= @user.id %>">Profile Page</a>
-<% end %>
+<div class='container'>
+  <% if @user %>
+    <%= "Welcome to golf tracker #{@user.name}" %>
+  <% end %>
 
-<% if flash[:holes] %>
+  <% if flash[:holes] %>
   <%= flash[:holes] %>
-<% end %>
+  <% end %>
+</div>
+
+
 
 <% if @winners %>
 <h2><%= "Results of #{@winners[:winning_round_stroke][0][0].course} on

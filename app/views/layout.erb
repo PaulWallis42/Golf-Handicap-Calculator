@@ -27,6 +27,10 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a class="nav-access" href='/'>Home</a></li>
+          <% if @user %>
+            <li><a class="nav-access" href="/round/new">Add a round</a></li>
+            <li><a class="nav-access" href="/users/<%= @user.id %>">Profile Page</a></li>
+          <% end %>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
