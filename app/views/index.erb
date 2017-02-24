@@ -7,9 +7,12 @@
   <%= flash[:holes] %>
   <% end %>
 </div>
+
 <% if @user %>
   <div class="container">
+
       <% if @winners %>
+
     <div class='jumbotron'>
       <h3 class="text-center"><%= "Results of #{@winners[:winning_round_stroke][0][0].course} on
               #{@winners[:winning_round_stroke][0][0].date.strftime("%d/%m/%Y")}" %></h3>
@@ -31,6 +34,20 @@
             <%= " with score of #{@winners[:winning_round_stroke][0][0].score}"%>
           </h3>
         </div>
+
+        <div class="col-md-4">
+          <h3 class='text-center'>C3PO Loser:</h3>
+          <h4 class='text-center'>
+            <% @winners[:winning_user_three_putt].each do |player| %>
+            <%= player %>
+            <% end %>
+          </h4>
+            <h4 class='text-center'>
+            <%= "#{@winners[:three_putt_total]} three putts"%>
+          </h4>
+          <img id="c3po" src="http://thefwoosh.com/wp-content/uploads/2015/08/Medicom-MAFEX-No-012-Star-Wars-C3PO-Promo.jpg">
+        </div>
+
         <div class="col-md-4 bg-success">
           <h3>Stableford Winner:
             <% @winners[:winning_user_stableford].each do |player| %>
@@ -38,19 +55,14 @@
             <% end %>
             <%= " with score of #{@winners[:winning_round_stableford][0][0].stableford}"%>
           </h3>
+          <% end %>
         </div>
-        <div class="col-md-4 bg-danger">
-          <h3>C3PO Loser:
-            <% @winners[:winning_user_three_putt].each do |player| %>
-              <%= player %>
-            <% end %>
-            <%= " with #{@winners[:three_putt_total]} three putts"%>
-          </h3>
-        <% end %>
-      </div>
+
     </div>
   </div>
+
 <% else %>
+
   <div id="golf-img">
     <div class="container" id="sign-up-page">
       <div class="jumbotron text-center">
@@ -64,4 +76,5 @@
       </div>
     </div>
   </div>
+
 <% end %>

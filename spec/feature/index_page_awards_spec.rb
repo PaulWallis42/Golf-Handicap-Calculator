@@ -21,7 +21,7 @@ feature 'awards acheived' do
     end
 
     scenario 'if more than one loser in the putts comp then both displayed' do
-      expect(page).to have_content('C3PO Loser: First User Second User with 18 three putts')
+      expect(page).to have_content('C3PO Loser: First User Second User 18 three putts')
     end
 
     scenario 'page displays the names of all those who played the round' do
