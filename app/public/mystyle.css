@@ -5,3 +5,17 @@
 .nav-leave {
   color: red !important;
 }
+
+#sign-up-page {
+  opacity: 0.8;
+  margin-top: 5%;
+}
+
+#golf-img {
+  border-top: 1px solid #000;
+  height: 100%;
+  width: 100%;
+  background-image: url("http://1.bp.blogspot.com/-UMMcBX-yLWs/UokyCSBxhQI/AAAAAAAAADA/jk-XU7qIP3g/s1600/Augusta+National+HD+Wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

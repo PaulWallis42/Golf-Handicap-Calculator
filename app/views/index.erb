@@ -7,19 +7,23 @@
   <%= flash[:holes] %>
   <% end %>
 </div>
-
 <% if @user %>
   <div class="container">
       <% if @winners %>
-      <h3><%= "Results of #{@winners[:winning_round_stroke][0][0].course} on
+    <div class='jumbotron'>
+      <h3 class="text-center"><%= "Results of #{@winners[:winning_round_stroke][0][0].course} on
               #{@winners[:winning_round_stroke][0][0].date.strftime("%d/%m/%Y")}" %></h3>
+    </div>
+      <div class='container'>
         <h3 class='text-center'>Competitors:
           <% @players.each do |player| %>
             <%= player %>
           <% end %>
         </h3>
+      </div>
+
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 bg-success">
           <h3>Stroke Play Winner:
             <% @winners[:winning_user_stroke].each do |player| %>
               <%= player %>
@@ -27,7 +31,7 @@
             <%= " with score of #{@winners[:winning_round_stroke][0][0].score}"%>
           </h3>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 bg-success">
           <h3>Stableford Winner:
             <% @winners[:winning_user_stableford].each do |player| %>
               <%= player %>
@@ -35,7 +39,7 @@
             <%= " with score of #{@winners[:winning_round_stableford][0][0].stableford}"%>
           </h3>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 bg-danger">
           <h3>C3PO Loser:
             <% @winners[:winning_user_three_putt].each do |player| %>
               <%= player %>
@@ -47,7 +51,14 @@
     </div>
   </div>
 <% else %>
-  <div class="container">
-    <h1 class="text-center">The Golf Tracking & Competition Application</h1>
+  <div id="golf-img">
+    <div class="container" id="sign-up-page">
+      <div class="jumbotron text-center">
+        <h1>Welcome to Golf Tracker</h1>
+        <p>...</p>
+        <span><a class="btn btn-primary btn-lg" href="/users/sign_up">Sign up</a>
+        <a class="btn btn-primary btn-lg" href="/users/sign_in" >Sign in</a></span>
+      </div>
+    </div>
   </div>
 <% end %>
