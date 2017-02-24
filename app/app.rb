@@ -25,6 +25,8 @@ class GolfTracker < Sinatra::Base
     user = User.make_new(params)
     if user.save
       session[:email] = params[:email]
+      @user = User.first(email: params[:email])
+      flash[:welcome] = "Welcome to Golf Tracker #{@user.name}"
       redirect '/'
     else
       flash[:notice] = 'Email is already taken'
@@ -39,6 +41,8 @@ class GolfTracker < Sinatra::Base
   post '/users/sign_in' do
     if User.authenticate(params)
       session[:email] = params[:email]
+      @user = User.first(email: params[:email])
+      flash[:welcome] = "Welcome to Golf Tracker #{@user.name}"
       redirect ('/')
     else
       flash[:notice] = 'Either your email and/or password are incorrect'
