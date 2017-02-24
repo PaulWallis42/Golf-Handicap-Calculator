@@ -1,5 +1,10 @@
-<div class='container'>
-  <% if session[:email] %>
+  <div class="jumbotron text-center">
+    <blockquote>
+      <p>The harder you practice, the luckier you get.</p>
+      <footer>Gary Player</footer>
+    </blockquote>
+
+    <% if session[:email] %>
     <form method='post' action='/round'>
       <label>Course:</label>
       <select name='course'>
@@ -11,9 +16,9 @@
       <input id="score" type='text' placeholder='eg 72' name='score'>
       <input id='round-button' type='submit' value='Submit'>
     </form>
-  <% else %>
+    <% else %>
     <h2>You must sign in to add a round</h2>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-  <script src="/rounds-scripts.js"></script>
+    <script src="/rounds-scripts.js"></script>

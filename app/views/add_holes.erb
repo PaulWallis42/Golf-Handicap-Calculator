@@ -1,23 +1,30 @@
-<div class="container">
-  <% if session[:email] %>
-    <h2>
-        Hole: <%= @course_hole.hole_number %> -
-        Par: <%= @course_hole.hole_par %> -
-        Distance: <%= @course_hole.hole_distance %> -
-        Stroke Index: <%= @course_hole.hole_si %>
-    </h2>
 
-    <form action='/holes' method='post'>
-      <label>Shots:</label>
-      <input id='shots' type='text' style='width: 30px' name='shots'>
-      <label>Putts:</label>
-      <input id='putts' type='text' style='width: 30px' name='putts'>
-      <input type='hidden' name='number' value='<%= @course_hole.hole_number %>'>
-      <input type='hidden' name='par' value='<%= @course_hole.hole_par %>'>
-      <input type='hidden' name='si' value='<%= @course_hole.hole_si %>'>
-      <input type='hidden' name='distance' value='<%= @course_hole.hole_distance %>'>
-      <input id='hole-button' type='submit' value='Submit'>
-    </form>
+
+<div class="jumbotron text-center">
+  <blockquote>
+    <p>To find a man's true character, play golf with him.</p>
+    <footer>Mark Twain</footer>
+  </blockquote>
+
+  <% if session[:email] %>
+  <h2>
+    Hole: <%= @course_hole.hole_number %> -
+    Par: <%= @course_hole.hole_par %> -
+    Distance: <%= @course_hole.hole_distance %> -
+    Stroke Index: <%= @course_hole.hole_si %>
+  </h2>
+
+  <form action='/holes' method='post'>
+    <label>Shots:</label>
+    <input id='shots' type='text' style='width: 30px' name='shots'>
+    <label>Putts:</label>
+    <input id='putts' type='text' style='width: 30px' name='putts'>
+    <input type='hidden' name='number' value='<%= @course_hole.hole_number %>'>
+    <input type='hidden' name='par' value='<%= @course_hole.hole_par %>'>
+    <input type='hidden' name='si' value='<%= @course_hole.hole_si %>'>
+    <input type='hidden' name='distance' value='<%= @course_hole.hole_distance %>'>
+    <input id='hole-button' type='submit' value='Submit'>
+  </form>
   <% end %>
 </div>
 
