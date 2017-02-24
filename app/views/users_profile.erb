@@ -17,7 +17,7 @@
       <th class='text-center'>Stableford</th>
     </tr>
   <% @rounds.each do |round| %>
-    <tr class="success">
+    <tr class="<%= round.score < 100 ? 'success' : 'danger' %>">
       <td class='text-center'><%= round.date.strftime("%d/%m/%Y") %></td>
       <td class='text-center'><%= round.course %></td>
       <td class='text-center'><%= round.handicap %> </td>
@@ -26,6 +26,4 @@
     </tr>
   <% end %>
     </table>
-
-
 </div>
