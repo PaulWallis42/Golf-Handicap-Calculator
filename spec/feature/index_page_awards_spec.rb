@@ -17,7 +17,7 @@ feature 'awards acheived' do
     end
 
     scenario 'the winner of the stableford is displayed on the home page' do
-      expect(page).to have_content('Stableford Winner: Second User with score of 62')
+      expect(page).to have_content('Stableford Winner: Second User Score of 62')
     end
 
     scenario 'if more than one loser in the putts comp then both displayed' do
