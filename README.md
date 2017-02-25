@@ -1,4 +1,4 @@
-# The Golf Stat & Handcap Tracker
+# The Golf Stat & Handicap Tracker
 
 An app that allows you to sign up and start recording your golfing rounds.  From your entries a golfing handicap is calculated and updated each time a user enters a new round.  From this handicap the app will calculate a Stableford score for the users round.  Each user has their own profile page which lists all their previous rounds, handicaps and scores.  The app also compares users v other users if they have played the same round and calculates the winner of the Stroke Play, Stableford Play and of course the infamous Three Putter award!
 
