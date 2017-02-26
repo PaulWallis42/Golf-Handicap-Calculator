@@ -19,4 +19,11 @@ class Round
                         handicap: user.handicap)
   end
 
+  def self.add_stableford
+    round = Round.last
+    stableford = Stableford.calculate(round)
+    round.stableford = stableford
+    round.save
+  end
+
 end

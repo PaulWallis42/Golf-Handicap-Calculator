@@ -25,4 +25,11 @@ class User
     user && BCrypt::Password.new(user.password) == params[:password]
   end
 
+  def self.add_handicap(session)
+    user = User.first(email: session[:email])
+    handicap = Handicap.calculate(user)
+    handicap <= 28 ? user.handicap = handicap : user.handicap = 28
+    user.save
+  end
+
 end

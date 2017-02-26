@@ -62,10 +62,7 @@ class GolfTracker < Sinatra::Base
 
   post '/round' do
     Round.round_create(session, params)
-    user = User.first(email: session[:email])
-    handicap = Handicap.calculate(user)
-    handicap <= 28 ? user.handicap = handicap : user.handicap = 28
-    user.save
+    User.add_handicap(session)
     redirect '/holes/new/1'
   end
 
@@ -81,10 +78,7 @@ class GolfTracker < Sinatra::Base
     if hole_num <= 18
       redirect "/holes/new/#{hole_num}"
     else
-      round = Round.last
-      stableford = Stableford.calculate(round)
-      round.stableford = stableford
-      round.save
+      Round.add_stableford
       flash[:holes] = "Round entered successfully"
       redirect "/"
     end
