@@ -1,27 +1,26 @@
-<div class='container'>
-  <% if @user %>
-  <h3 class="text-center"><%= flash[:welcome] %></h3>
-  <% end %>
-
-  <% if flash[:holes] %>
-    <h3 class='text-center'><%= flash[:holes] %></h3>
-  <% end %>
-</div>
-
 <% if @user %>
+  <div class='container'>
+    <h3 class="text-center"><%= flash[:welcome] %></h3>
+  </div>
+
+  <div class ='container'>
+    <% if flash[:holes] %>
+    <h3 class='text-center'><%= flash[:holes] %></h3>
+    <% end %>
+  </div>
+
   <div class="container">
+    <% if @winners %>
+      <div class='jumbotron'>
+        <h3 class="text-center"><%= "Results of #{@winners[:winning_round_stroke][0][0].course} on
+            #{@winners[:winning_round_stroke][0][0].date.strftime("%d/%m/%Y")}" %></h3>
+      </div>
 
-      <% if @winners %>
-
-    <div class='jumbotron'>
-      <h3 class="text-center"><%= "Results of #{@winners[:winning_round_stroke][0][0].course} on
-              #{@winners[:winning_round_stroke][0][0].date.strftime("%d/%m/%Y")}" %></h3>
-    </div>
       <div class='container'>
         <h3 class='text-center'>Competitors:</h3>
         <h3 class='text-center'>
           <% @players.each do |player| %>
-            *** <%= player %>
+              *** <%= player %>
           <% end %>***
         </h3>
       </div>
@@ -65,9 +64,8 @@
           <img id="c3po" class="center-block" src="http://www.golftrophy.co.uk/en/H23s-golf-trophy.jpg">
           <% end %>
         </div>
-
+      </div>
     </div>
-  </div>
 
 <% else %>
 
